@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/11 17:16:43 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/12 19:22:31 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,29 @@
 
 # endif
 
-typedef struct	s_data {
+# ifndef ITER_MAX
+#  define ITER_MAX 150
+
+# endif
+
+typedef struct	s_fractal
+{
+	char	name[20];
+	double	cx;
+	double	cy;
+	double	x;
+	double	y;
+	int color;
+}	t_fractal;
+
+typedef struct	s_data
+{
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}	t_data;
 
 /******************* PUSH_SWAP *******************/
 

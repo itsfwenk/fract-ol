@@ -6,11 +6,32 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:37:32 by fli               #+#    #+#             */
-/*   Updated: 2024/07/11 18:18:34 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/12 19:24:06 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	mandel_calc(t_fractal *z)
+{
+	int	i;
+	int	x;
+
+	i = 0;
+	while (i < ITER_MAX)
+	{
+		x = (z->x) * (z->x) - (z->y) * (z->y) + z->cx;
+		z->y = 2.0 * (z->x) * (z->y) + z->cy;
+		z->x = x;
+		i++;
+		if ((z->x) + (z->y) >= 4)
+			break ;
+	}
+	if (i == ITER_MAX)
+		put_color_to_pixel(z, z->x, z->y, 0x00000000);
+	else
+		put_color_to_pixel(z, z->x, z->y, (z->color * i));
+}
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -32,8 +53,8 @@ int	main(void)
 	mlx_win = mlx_new_window(mlx, 960, 540, "Hello world!");
 	img.img = mlx_new_image(mlx, 960, 540);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-								printf("%d - %d\n", img.bits_per_pixel, img.line_length);
+		&img.endian);
+	printf("%d - %d\n", img.bits_per_pixel, img.line_length);
 	int i = 5;
 	while (i < 200)
 		my_mlx_pixel_put(&img, 5, i++, 0x00FF0000);
