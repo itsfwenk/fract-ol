@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 19:27:36 by fli               #+#    #+#             */
-/*   Updated: 2024/07/12 19:55:21 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/13 14:13:00 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ double	ft_atod(const char *nptr)
 	return (sign * (nbr + ft_atod_dec(nptr)));
 }
 
-# include <stdio.h>
-int	main(int argc, char **argv)
-{
-	(void)argc;
-	double nb = ft_atod(argv[1]);
-	dprintf(2, "nb : %f\n", nb);
-}
+// # include <stdio.h>
+// int	main(int argc, char **argv)
+// {
+// 	(void)argc;
+// 	double nb = ft_atod(argv[1]);
+// 	dprintf(2, "nb : %f\n", nb);
+// }

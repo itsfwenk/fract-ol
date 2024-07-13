@@ -6,32 +6,11 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:37:32 by fli               #+#    #+#             */
-/*   Updated: 2024/07/12 19:24:06 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/13 17:38:19 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	mandel_calc(t_fractal *z)
-{
-	int	i;
-	int	x;
-
-	i = 0;
-	while (i < ITER_MAX)
-	{
-		x = (z->x) * (z->x) - (z->y) * (z->y) + z->cx;
-		z->y = 2.0 * (z->x) * (z->y) + z->cy;
-		z->x = x;
-		i++;
-		if ((z->x) + (z->y) >= 4)
-			break ;
-	}
-	if (i == ITER_MAX)
-		put_color_to_pixel(z, z->x, z->y, 0x00000000);
-	else
-		put_color_to_pixel(z, z->x, z->y, (z->color * i));
-}
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -42,7 +21,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 }
 
-#include<stdio.h>
 int	main(void)
 {
 	void	*mlx;
@@ -50,23 +28,40 @@ int	main(void)
 	t_data	img;
 
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 960, 540, "Hello world!");
-	img.img = mlx_new_image(mlx, 960, 540);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-		&img.endian);
-	printf("%d - %d\n", img.bits_per_pixel, img.line_length);
-	int i = 5;
-	while (i < 200)
-		my_mlx_pixel_put(&img, 5, i++, 0x00FF0000);
-	 i = 5;
-	while (i < 200)
-		my_mlx_pixel_put(&img, i++, 5, 0x00FF0000);
-	i = 5;
-	while (i < 200)
-		my_mlx_pixel_put(&img, 200, i++, 0x00FF0000);
-	i = 5;
-	while (i < 200)
-		my_mlx_pixel_put(&img, i++, 200, 0x00FF0000);
+	mlx_win = mlx_new_window(mlx, LENGTH, WIDTH, "Mandelbrot");
+	img.img = mlx_new_image(mlx, LENGTH, WIDTH);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
+	t_fractal *mandel;
+	mandel = malloc(sizeof(t_fractal));
+	mandel->cx = 0;
+	mandel->cy = 0;
+	mandel->x = 0;
+	mandel->y = 0;
+	mandel->px = 0;
+	mandel->py = 0;
+	while (mandel->py <= WIDTH)
+	{
+		while (mandel->px <= LENGTH)
+		{
+			mandel_calc(mandel, img);
+			(mandel->px)++;
+			mandel->x = 0;
+			mandel->y = 0;
+		}
+		(mandel->px) = 0;
+		(mandel->py)++;
+	}
+	// while (i < 200)
+	// 	my_mlx_pixel_put(&img, 5, i++, 0x00FF0000);
+	//  i = 5;
+	// while (i < 200)
+	// 	my_mlx_pixel_put(&img, i++, 5, 0x00FF0000);
+	// i = 5;
+	// while (i < 200)
+	// 	my_mlx_pixel_put(&img, 200, i++, 0x00FF0000);
+	// i = 5;
+	// while (i < 200)
+	// 	my_mlx_pixel_put(&img, i++, 200, 0x00FF0000);
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }

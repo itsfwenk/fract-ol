@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/11 17:00:52 by fli              ###   ########.fr        #
+#    Updated: 2024/07/13 17:18:01 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME	= fractol
 
 # Compiler
-CC		= cc
+CC		= cc -g3
 CFLAGS	= -Werror -Wextra -Wall
 
 # Minilibx
@@ -35,6 +35,8 @@ INC			=	-I ./includes/\
 # Sources
 SRC_PATH	=	src/
 SRC			=	fractol.c \
+				mandel_calc.c \
+				pxtod.c \
 
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
@@ -79,6 +81,8 @@ clean:
 fclean: clean
 	@echo "Removing fractol..."
 	@rm -f $(NAME)
+	@rm -f $(OBJ)
+	@rm -f $(LIBFT_NAME)
 	@rm -f $(LIBFT_PATH)$(LIBFT_NAME)
 
 re: fclean all
