@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 14:09:53 by fli               #+#    #+#             */
-/*   Updated: 2024/07/13 17:56:08 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/14 14:15:06 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	mandel_calc(t_fractal *z, t_data img)
 			break ;
 	}
 	if (i == ITER_MAX)
-		my_mlx_pixel_put(&img, z->px, z->py, 0x00FF0000);
+		my_mlx_pixel_put(&img, z->px, z->py, 0x00000000+i);
 	else
 	{
 		// dprintf(2, "i = %d\n", i);
-		my_mlx_pixel_put(&img, z->px, z->py, 0x00000000+i);
+		my_mlx_pixel_put(&img, z->px, z->py, 0xFFFFFFFF);
 	}
 	// if (i == ITER_MAX)
 	// 	put_color_to_pixel(z, z->x, z->y, 0x00000000);
