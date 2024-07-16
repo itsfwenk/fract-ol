@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:32:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/15 16:32:17 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/16 21:03:56 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,15 @@ void	def_cplane(t_fractal *f)
 {
 	if (f->set == 'm')
 	{
-		f->min_r = -4;
-		f->max_r = 4;
+		f->min_r = -2;
+		f->max_r = 2;
 		f->min_i = f->min_r * HEIGHT / WIDTH;
 		f->max_i = f->max_r * HEIGHT / WIDTH;
+
+		// f->min_r = -2.0;
+		// f->max_r = 2.0;
+		// f->min_i = f->min_r * HEIGHT / WIDTH;
+		// f->max_i = f->max_r * HEIGHT / WIDTH;
 	}
 }
 

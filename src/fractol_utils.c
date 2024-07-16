@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pxtod.c                                            :+:      :+:    :+:   */
+/*   fractol_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/13 14:27:55 by fli               #+#    #+#             */
-/*   Updated: 2024/07/15 11:26:06 by fli              ###   ########.fr       */
+/*   Created: 2024/07/15 11:15:57 by fli               #+#    #+#             */
+/*   Updated: 2024/07/16 20:42:03 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-double	pxtod_x(t_fractal *f, int x)
+int	clean_exit(t_fractal *f)
 {
-	double	zx;
-
-	zx = f->min_r + (double)x * (f->max_r - f->min_r) / WIDTH;
-	return (zx);
-}
-
-double	pxtod_y(t_fractal *f, int y)
-{
-	double	zy;
-
-	zy = f->min_i + (double)y * (f->max_i - f->min_i) / HEIGHT;
-	return (zy);
+	if (!f)
+		exit(EXIT_FAILURE);
+	if (f->palette)
+		free(f->palette);
+	if (f->img)
+		mlx_destroy_image(f->mlx, f->img);
+	if (f->win && f->mlx)
+		mlx_destroy_window(f->mlx, f->win);
+	if (f->mlx)
+	{
+		mlx_loop_end(f->mlx);
+		mlx_destroy_display(f->mlx);
+		free(f->mlx);
+	}
+	exit(EXIT_FAILURE);
+	return (0);
 }

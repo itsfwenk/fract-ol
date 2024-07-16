@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/13 17:18:01 by fli              ###   ########.fr        #
+#    Updated: 2024/07/16 17:34:53 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,15 @@ INC			=	-I ./includes/\
 
 # Sources
 SRC_PATH	=	src/
-SRC			=	fractol.c \
+SRC			=	calc_fract.c \
+				color_fractol.c \
+				draw_fract.c \
+				fractol_utils.c \
+				fractol.c \
+				init_fractol.c \
 				mandel_calc.c \
 				pxtod.c \
+				zoom.c \
 
 SRCS		= $(addprefix $(SRC_PATH), $(SRC))
 
@@ -67,7 +73,7 @@ $(LIBFT):
 
 $(NAME): $(OBJS)
 	@echo "Compiling fractol..."
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm
+	$(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) $(INC) -lXext -lX11 -lm -o $(NAME)
 	@echo "Fractol ready."
 
 bonus: all
