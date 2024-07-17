@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 14:37:32 by fli               #+#    #+#             */
-/*   Updated: 2024/07/16 21:01:08 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/17 14:52:30 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	init_img(&f);
 	draw_fract(&f);
 	mlx_hook(f.win, 17, 0, clean_exit, &f);
-	mlx_mouse_hook(f.win, zoom_dezoom, &f);
+	mlx_mouse_hook(f.win, mouse_event, &f);
 	mlx_loop(f.mlx);
 }
 

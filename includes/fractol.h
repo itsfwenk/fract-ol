@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/16 21:03:25 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/17 15:28:06 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,8 @@ typedef struct	s_fractal
 	double	max_r;
 	double	min_i;
 	double	max_i;
-	double	kr;
-	double	ki;
-	double	zoom;
+	double	cr;
+	double	ci;
 	int		*palette;
 	int		color;
 }	t_fractal;
@@ -125,6 +124,6 @@ int		mandel_calc(double	cx, double cy);
 
 /******************* ZOOM *******************/
 
-int		zoom_dezoom(int mcode, t_fractal *f);
+int	mouse_event(int keycode, int x, int y, t_fractal *mlx);
 
 #endif

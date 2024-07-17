@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:32:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/16 21:03:56 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/17 19:23:43 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,27 @@ static void	f_init(t_fractal *f)
 	f->max_r = 0;
 	f->min_i = 0;
 	f->max_i = 0;
-	f->kr = 0;
-	f->ki = 0;
-	f->zoom = 1;
 	f->palette = NULL;
 	f->color = 0x0000FF00;
+	f->cr = 0;
+	f->ci = 0;
 }
 
 void	def_cplane(t_fractal *f)
 {
 	if (f->set == 'm')
 	{
+		f->min_r = -4;
+		f->max_r = 4;
+		f->min_i = f->min_r * HEIGHT / WIDTH;
+		f->max_i = f->max_r * HEIGHT / WIDTH;
+	}
+	if (f->set == 'j')
+	{
 		f->min_r = -2;
 		f->max_r = 2;
 		f->min_i = f->min_r * HEIGHT / WIDTH;
 		f->max_i = f->max_r * HEIGHT / WIDTH;
-
-		// f->min_r = -2.0;
-		// f->max_r = 2.0;
-		// f->min_i = f->min_r * HEIGHT / WIDTH;
-		// f->max_i = f->max_r * HEIGHT / WIDTH;
 	}
 }
 
