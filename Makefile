@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/16 17:34:53 by fli              ###   ########.fr        #
+#    Updated: 2024/07/18 11:22:03 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,8 +39,11 @@ SRC			=	calc_fract.c \
 				draw_fract.c \
 				fractol_utils.c \
 				fractol.c \
+				ft_atod.c \
 				init_fractol.c \
+				julia_calc.c \
 				mandel_calc.c \
+				print_guide.c \
 				pxtod.c \
 				zoom.c \
 

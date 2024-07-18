@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/17 15:28:06 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/18 11:21:48 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ typedef struct	s_data
 
 // void	parsing_fractol(t_fractal *f, int ac, char **av);
 
-int	main(int argc, char **argv);
+// int		main(int argc, char **argv);
 
 /******************* INIT_FRACTOL *******************/
 
@@ -98,7 +98,11 @@ void	init_img(t_fractal *f);
 
 /******************* FRACTOL_UTILS *******************/
 
-int	clean_exit(t_fractal *f);
+int		clean_exit(t_fractal *f);
+
+/******************* ATOD *******************/
+
+double	ft_atod(const char *nptr);
 
 /******************* COLOR_FRACTOL *******************/
 
@@ -122,8 +126,16 @@ int		calc_fract(t_fractal *f, int cx, int cy);
 
 int		mandel_calc(double	cx, double cy);
 
+/******************* JULIA_CALC *******************/
+
+int		julia_calc(double zx, double zy, t_fractal *f);
+
 /******************* ZOOM *******************/
 
-int	mouse_event(int keycode, int x, int y, t_fractal *mlx);
+int		mouse_event(int keycode, int x, int y, t_fractal *mlx);
+
+/******************* PRINT_GUIDE *******************/
+
+void	print_guide(t_fractal *f);
 
 #endif

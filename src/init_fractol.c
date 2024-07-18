@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:32:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/17 19:23:43 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/18 11:47:25 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static void	f_init(t_fractal *f)
 	f->max_i = 0;
 	f->palette = NULL;
 	f->color = 0x0000FF00;
-	f->cr = 0;
-	f->ci = 0;
 }
 
 void	def_cplane(t_fractal *f)
