@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 14:09:53 by fli               #+#    #+#             */
-/*   Updated: 2024/07/16 12:25:15 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/18 17:47:27 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	mandel_calc(double	cx, double cy)
+int	mandel_calc(double cx, double cy)
 {
 	int	i;
 	double	zx;

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 17:19:42 by fli               #+#    #+#             */
-/*   Updated: 2024/07/17 13:17:45 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/18 19:01:38 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	zoom(t_fractal *f, double zoom)
 	f->max_i = f->min_i + zoom * center_i;
 }
 
-static void	move(t_fractal *f, double distance, char direction)
+void	move(t_fractal *f, double distance, char direction)
 {
 	double	center_r;
 	double	center_i;
@@ -77,31 +77,31 @@ static void	move(t_fractal *f, double distance, char direction)
 	}
 }
 
-int	mouse_event(int keycode, int x, int y, t_fractal *mlx)
+int	mouse_event(int keycode, int x, int y, t_fractal *f)
 {
 	if (keycode == 4)
 	{
-		zoom(mlx, 0.5);
+		zoom(f, 0.5);
 		x -= WIDTH / 2;
 		y -= HEIGHT / 2;
 		if (x < 0)
-			move(mlx, (double)x * -1 / WIDTH, 'L');
+			move(f, (double)x * -1 / WIDTH, 'L');
 		else if (x > 0)
-			move(mlx, (double)x / WIDTH, 'R');
+			move(f, (double)x / WIDTH, 'R');
 		if (y < 0)
-			move(mlx, (double)y * -1 / HEIGHT, 'U');
+			move(f, (double)y * -1 / HEIGHT, 'U');
 		else if (y > 0)
-			move (mlx, (double)y / HEIGHT, 'D');
+			move (f, (double)y / HEIGHT, 'D');
 	}
 	else if (keycode == 5)
-		zoom(mlx, 2);
+		zoom(f, 2);
 	// else if (keycode == MOUSE_BTN)
 	// {
-	// 	if (mlx->set == JULIA)
-	// 		julia_shift(x, y, mlx);
+	// 	if (f->set == JULIA)
+	// 		julia_shift(x, y, f);
 	// }
 	else
 		return (0);
-	draw_fract(mlx);
+	draw_fract(f);
 	return (0);
 }

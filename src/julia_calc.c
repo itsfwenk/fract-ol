@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:26:37 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 11:44:44 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/18 12:50:26 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	julia_calc(double zx, double zy, t_fractal *f)
 	int	i;
 	double	temp_zx;
 
-	// dprintf(2, "pixel : %f %f \n constant %f %f\n", zx, zy, f->cr, f->ci);
 	i = 0;
 	while (i < ITER_MAX)
 	{

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 10:41:52 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 11:45:55 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/18 18:38:28 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	draw_fract(t_fractal *f)
 	int	py;
 	int	i;
 
-	// dprintf(2, "constant %f %f\n", f->cr, f->ci);
 	py = 0;
 	while (py++ < HEIGHT)
 	{
@@ -41,9 +40,8 @@ void	draw_fract(t_fractal *f)
 				i = mandel_calc(pxtod_x(f, px), pxtod_y(f, py));
 			else if (f->set == 'j')
 				i = julia_calc(pxtod_x(f, px), pxtod_y(f, py), f);
-			// else if (f->set == 'b')
-			// 	i = burn_calc();
-
+			else if (f->set == 'b')
+				i = burnship_calc(pxtod_x(f, px), pxtod_y(f, py));
 			if (i == ITER_MAX)
 				set_pixel_color(f, px, py, 0x00000000);
 			else

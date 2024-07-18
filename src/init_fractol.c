@@ -6,13 +6,13 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:32:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 11:47:25 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/18 18:35:24 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	f_init(t_fractal *f)
+void	f_init(t_fractal *f)
 {
 	f->mlx = NULL;
 	f->win = NULL;
@@ -23,7 +23,10 @@ static void	f_init(t_fractal *f)
 	f->min_i = 0;
 	f->max_i = 0;
 	f->palette = NULL;
-	f->color = 0x0000FF00;
+	f->color1 = 0x0000FF00;
+	f->color2 = 0x00FF0000;
+	f->color3 = 0x000000FF;
+	f->color_num = 1;
 }
 
 void	def_cplane(t_fractal *f)
@@ -39,6 +42,13 @@ void	def_cplane(t_fractal *f)
 	{
 		f->min_r = -2;
 		f->max_r = 2;
+		f->min_i = f->min_r * HEIGHT / WIDTH;
+		f->max_i = f->max_r * HEIGHT / WIDTH;
+	}
+	if (f->set == 'b')
+	{
+		f->min_r = -2;
+		f->max_r = 1;
 		f->min_i = f->min_r * HEIGHT / WIDTH;
 		f->max_i = f->max_r * HEIGHT / WIDTH;
 	}
@@ -70,5 +80,5 @@ void	init_img(t_fractal *f)
 	f->palette = malloc((ITER_MAX + 1) * sizeof(int));
 	if (f->palette == NULL)
 		clean_exit(f);
-	def_color(f, f->color);
+	def_color(f, f->color1);
 }

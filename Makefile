@@ -6,7 +6,7 @@
 #    By: fli <fli@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/08 10:09:37 by fli               #+#    #+#              #
-#    Updated: 2024/07/18 11:22:03 by fli              ###   ########.fr        #
+#    Updated: 2024/07/18 17:27:02 by fli              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ INC			=	-I ./includes/\
 
 # Sources
 SRC_PATH	=	src/
-SRC			=	calc_fract.c \
+SRC			=	burnship_calc.c \
 				color_fractol.c \
 				draw_fract.c \
 				fractol_utils.c \
@@ -42,6 +42,7 @@ SRC			=	calc_fract.c \
 				ft_atod.c \
 				init_fractol.c \
 				julia_calc.c \
+				key_event.c \
 				mandel_calc.c \
 				print_guide.c \
 				pxtod.c \
