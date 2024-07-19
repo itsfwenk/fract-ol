@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 17:19:42 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 19:01:38 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 14:14:59 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,6 @@ int	mouse_event(int keycode, int x, int y, t_fractal *f)
 	}
 	else if (keycode == 5)
 		zoom(f, 2);
-	// else if (keycode == MOUSE_BTN)
-	// {
-	// 	if (f->set == JULIA)
-	// 		julia_shift(x, y, f);
-	// }
 	else
 		return (0);
 	draw_fract(f);

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 10:41:52 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 18:38:28 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 14:16:03 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@ static void	set_pixel_color(t_fractal *f, int x, int y, int color)
 {
 	char	*dst;
 
-	dst = (f->buf) + (y * WIDTH  * BYTES_PER_PX + x * (BITS_PER_PX / 8));
-	*(unsigned int*)dst = color;
-	// f->buf[x * 4 + y * WIDTH * 4] = color;
-	// f->buf[x * 4 + y * WIDTH * 4 + 1] = color >> 8;
-	// f->buf[x * 4 + y * WIDTH * 4 + 2] = color >> 16;
-	// f->buf[x * 4 + y * WIDTH * 4 + 3] = color >> 24;
+	dst = (f->buf) + (y * WIDTH * BYTES_PER_PX + x * (BITS_PER_PX / 8));
+	*(unsigned int *)dst = color;
 }
 
 void	draw_fract(t_fractal *f)

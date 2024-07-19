@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/13 14:09:53 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 17:47:27 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 14:10:27 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	mandel_calc(double cx, double cy)
 {
-	int	i;
+	int		i;
 	double	zx;
 	double	zy;
 	double	temp_zx;
@@ -24,7 +24,7 @@ int	mandel_calc(double cx, double cy)
 	zy = 0;
 	while (i < ITER_MAX)
 	{
-		if ((zx)*(zx) + (zy)*(zy) > 4)
+		if ((zx) * (zx) + (zy) * (zy) > 4)
 			break ;
 		temp_zx = (zx) * (zx) - (zy) * (zy) + cx;
 		zy = 2.0 * (zx) * (zy) + cy;

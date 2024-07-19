@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:17:47 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 19:00:01 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 13:59:42 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@
 
 # endif
 
-typedef struct	s_fractal
+typedef struct s_fractal
 {
 	void	*mlx;
 	void	*win;
@@ -156,10 +156,9 @@ int		mouse_event(int keycode, int x, int y, t_fractal *mlx);
 
 void	move(t_fractal *f, double distance, char direction);
 
-
 /******************* KEY_EVENT *******************/
 
-int		key_event(int keycode, void *param);
+int		key_event(int keycode, t_fractal *f);
 
 /******************* PRINT_GUIDE *******************/
 

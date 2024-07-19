@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 19:27:36 by fli               #+#    #+#             */
-/*   Updated: 2024/07/13 14:13:00 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 14:09:10 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static double	ft_atod_dec(const char *nptr)
 
 double	ft_atod(const char *nptr)
 {
-	int	i;
+	int		i;
 	double	nbr;
-	int	sign;
+	int		sign;
 
 	i = 0;
 	sign = 1;

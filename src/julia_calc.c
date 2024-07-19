@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:26:37 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 12:50:26 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 14:12:57 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	julia_calc(double zx, double zy, t_fractal *f)
 {
-	int	i;
+	int		i;
 	double	temp_zx;
 
 	i = 0;
 	while (i < ITER_MAX)
 	{
-		if ((zx)*(zx) + (zy)*(zy) > 4)
+		if ((zx) * (zx) + (zy) * (zy) > 4)
 			break ;
 		temp_zx = (zx) * (zx) - (zy) * (zy) + f->cr;
 		zy = 2.0 * (zx) * (zy) + f->ci;

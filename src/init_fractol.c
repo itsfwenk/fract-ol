@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 11:32:04 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 18:35:24 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 14:12:08 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,24 @@ void	def_cplane(t_fractal *f)
 {
 	if (f->set == 'm')
 	{
-		f->min_r = -4;
-		f->max_r = 4;
-		f->min_i = f->min_r * HEIGHT / WIDTH;
-		f->max_i = f->max_r * HEIGHT / WIDTH;
+		f->min_r = -4.0;
+		f->max_r = 4.0;
+		f->min_i = ((f->max_r - f->min_r) / 2) * HEIGHT / WIDTH;
+		f->max_i = f->min_i - (f->max_r - f->min_r) * HEIGHT / WIDTH;
 	}
-	if (f->set == 'j')
+	else if (f->set == 'j')
 	{
-		f->min_r = -2;
-		f->max_r = 2;
-		f->min_i = f->min_r * HEIGHT / WIDTH;
-		f->max_i = f->max_r * HEIGHT / WIDTH;
+		f->min_r = -2.0;
+		f->max_r = 2.0;
+		f->min_i = ((f->max_r - f->min_r) / 2) * HEIGHT / WIDTH;
+		f->max_i = f->min_i - (f->max_r - f->min_r) * HEIGHT / WIDTH;
 	}
-	if (f->set == 'b')
+	else
 	{
-		f->min_r = -2;
-		f->max_r = 1;
-		f->min_i = f->min_r * HEIGHT / WIDTH;
-		f->max_i = f->max_r * HEIGHT / WIDTH;
+		f->min_r = -1.7;
+		f->max_r = -1.5;
+		f->min_i = ((f->max_r - f->min_r) / 2) * HEIGHT / WIDTH;
+		f->max_i = f->min_i - (f->max_r - f->min_r) * HEIGHT / WIDTH;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: fli <fli@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:17:02 by fli               #+#    #+#             */
-/*   Updated: 2024/07/18 17:52:51 by fli              ###   ########.fr       */
+/*   Updated: 2024/07/19 14:15:21 by fli              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static double	v_abs(double value)
 		return (value);
 }
 
-int	burnship_calc(double	cx, double cy)
+int	burnship_calc(double cx, double cy)
 {
-	int	i;
+	int		i;
 	double	zx;
 	double	zy;
 	double	temp_zx;
@@ -32,7 +32,7 @@ int	burnship_calc(double	cx, double cy)
 	zy = 0;
 	while (i < ITER_MAX)
 	{
-		if ((zx)*(zx) + (zy)*(zy) > 4.0)
+		if ((zx) * (zx) + (zy) * (zy) > 4.0)
 			break ;
 		temp_zx = (zx) * (zx) - (zy) * (zy) + cx;
 		zy = v_abs(2.0 * (zx) * (zy)) + cy;
